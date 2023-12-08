@@ -90,11 +90,11 @@ def game_dict():
                 },
             ],
         },
-            
+
         "away": {
             "team_name": "Washington Wizards",
             "colors": ["Red", "White", "Navy Blue"],
-            "players": [   
+            "players": [
                 {
                     "name": "Bradley Beal",
                     "number": 3,
@@ -182,3 +182,19 @@ def game_dict():
             ]
         }
     }
+
+
+def num_points_per_game(player_name):
+
+    game_dict_data = game_dict()
+
+    if 'players' in game_dict_data['home'] and player_name in game_dict_data['home']['players']:
+
+        points_per_game = game_dict_data['home']['players'][player_name]['points_per_game']
+        return points_per_game
+    elif 'players' in game_dict_data['away'] and player_name in game_dict_data['away']['players']:
+        points_per_game = game_dict_data['away']['players'][player_name]['points_per_game']
+        return points_per_game
+    else:
+
+        return f"{player_name} not found in the game."
